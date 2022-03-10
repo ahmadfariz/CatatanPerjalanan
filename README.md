@@ -1,1 +1,3 @@
 # CatatanPerjalanan
+
+Yahaha kosong
