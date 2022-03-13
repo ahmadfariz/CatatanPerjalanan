@@ -1,3 +1,3 @@
 # CatatanPerjalanan
 
-Yahaha kosong
+Yahaha hayuk
