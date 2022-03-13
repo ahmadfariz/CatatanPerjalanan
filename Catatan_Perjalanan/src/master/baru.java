@@ -5,17 +5,28 @@
  */
 package master;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author crYptONE
  */
 public class baru extends javax.swing.JFrame {
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
 
     /**
      * Creates new form baru
      */
     public baru() {
         initComponents();
+        conn = db.koneksi.koneksi();
     }
 
     /**
@@ -27,22 +38,82 @@ public class baru extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nik = new javax.swing.JTextField();
+        jenkel = new javax.swing.JComboBox<>();
+        nama = new javax.swing.JTextField();
+        alamat = new javax.swing.JTextField();
+        simpan = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(824, 534));
+        setSize(new java.awt.Dimension(824, 534));
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        nik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nikActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nik);
+        nik.setBounds(390, 60, 350, 40);
 
-        pack();
+        jenkel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jenis Kelamin", "Laki - Laki", "Perempuan" }));
+        getContentPane().add(jenkel);
+        jenkel.setBounds(390, 320, 350, 60);
+        getContentPane().add(nama);
+        nama.setBounds(390, 110, 350, 50);
+        getContentPane().add(alamat);
+        alamat.setBounds(390, 170, 350, 140);
+
+        simpan.setText("jButton1");
+        simpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simpanActionPerformed(evt);
+            }
+        });
+        getContentPane().add(simpan);
+        simpan.setBounds(430, 450, 100, 60);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 824, 534);
+
+        setBounds(0, 0, 840, 573);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void nikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nikActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nikActionPerformed
+
+    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
+        // TODO add your handling code here:
+        try{
+            String SQL = "insert into tb_pengguna values('"+nik.getText()+"','"+nama.getText()+"','"+alamat.getText()+"','"+jenkel.getSelectedItem()+"')";
+            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan!");
+            hub(SQL);
+            //conn = db.koneksi.koneksi();
+        }catch(Exception exc){
+            System.err.println(exc.getMessage());
+            JOptionPane.showMessageDialog(null, "Data Gagal Disimpan!");
+        }
+    }//GEN-LAST:event_simpanActionPerformed
+
+            private void hub(String sql){
+        try {
+            String hubung="jdbc:mysql://localhost:3306/cttjalan";
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection kon=DriverManager.getConnection(hubung,"root","");
+            Statement stt=kon.createStatement();
+            stt.executeUpdate(sql);
+            stt.close();
+            kon.close();
+        }catch(Exception exc){
+            System.err.println(exc.getMessage());
+        }
+        
+                }
+    
     /**
      * @param args the command line arguments
      */
@@ -79,5 +150,11 @@ public class baru extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField alamat;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> jenkel;
+    private javax.swing.JTextField nama;
+    private javax.swing.JTextField nik;
+    private javax.swing.JButton simpan;
     // End of variables declaration//GEN-END:variables
 }
