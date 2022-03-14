@@ -163,6 +163,9 @@ public class login extends javax.swing.JFrame {
 
     private void daftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarActionPerformed
         // TODO add your handling code here:
+        baru inf = new baru();
+        inf.setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_daftarActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed

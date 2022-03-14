@@ -26,6 +26,7 @@ public class baru extends javax.swing.JFrame {
      */
     public baru() {
         initComponents();
+        this.setLocationRelativeTo(null);
         conn = db.koneksi.koneksi();
     }
 
@@ -41,13 +42,15 @@ public class baru extends javax.swing.JFrame {
         nik = new javax.swing.JTextField();
         jenkel = new javax.swing.JComboBox<>();
         nama = new javax.swing.JTextField();
-        alamat = new javax.swing.JTextField();
-        simpan = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        alamat = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        simpan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(824, 534));
-        setSize(new java.awt.Dimension(824, 534));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(470, 650));
+        setSize(new java.awt.Dimension(470, 650));
         getContentPane().setLayout(null);
 
         nik.addActionListener(new java.awt.event.ActionListener() {
@@ -56,15 +59,24 @@ public class baru extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nik);
-        nik.setBounds(390, 60, 350, 40);
+        nik.setBounds(190, 120, 230, 40);
 
         jenkel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jenis Kelamin", "Laki - Laki", "Perempuan" }));
         getContentPane().add(jenkel);
-        jenkel.setBounds(390, 320, 350, 60);
+        jenkel.setBounds(250, 390, 150, 40);
         getContentPane().add(nama);
-        nama.setBounds(390, 110, 350, 50);
-        getContentPane().add(alamat);
-        alamat.setBounds(390, 170, 350, 140);
+        nama.setBounds(190, 170, 230, 40);
+
+        alamat.setColumns(20);
+        alamat.setRows(5);
+        jScrollPane1.setViewportView(alamat);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(190, 220, 230, 150);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/7.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 470, 650);
 
         simpan.setText("jButton1");
         simpan.addActionListener(new java.awt.event.ActionListener() {
@@ -73,13 +85,9 @@ public class baru extends javax.swing.JFrame {
             }
         });
         getContentPane().add(simpan);
-        simpan.setBounds(430, 450, 100, 60);
+        simpan.setBounds(120, 560, 100, 60);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 824, 534);
-
-        setBounds(0, 0, 840, 573);
+        setBounds(0, 0, 470, 650);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nikActionPerformed
@@ -150,8 +158,9 @@ public class baru extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField alamat;
+    private javax.swing.JTextArea alamat;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jenkel;
     private javax.swing.JTextField nama;
     private javax.swing.JTextField nik;
