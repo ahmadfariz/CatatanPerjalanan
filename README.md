@@ -2,6 +2,8 @@
 ## Baca Dulu sebelum copy meng copy
 Yahaha hayuk, jangan campur skrip A dan B jadi 1 kecuali faham tiap fungsi! mengurangi error yang ada, karena skrip dari guru beda dengan milik saya 😀 dah cukup itu saja, dari badut online.
 
+- Jika Ada Kekurangan atau error silahkan sampaikan lewat issues
+
 ## Barang kali bersedia beliin kopi untuk saya dan ayang saya
 [Klik Ini](https://saweria.co/ahmadfariz)
 
