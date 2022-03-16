@@ -46,6 +46,7 @@ public class baru extends javax.swing.JFrame {
         alamat = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         simpan = new javax.swing.JButton();
+        kembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -85,7 +86,16 @@ public class baru extends javax.swing.JFrame {
             }
         });
         getContentPane().add(simpan);
-        simpan.setBounds(120, 560, 100, 60);
+        simpan.setBounds(230, 560, 90, 60);
+
+        kembali.setText("jButton1");
+        kembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kembaliActionPerformed(evt);
+            }
+        });
+        getContentPane().add(kembali);
+        kembali.setBounds(340, 560, 90, 60);
 
         setBounds(0, 0, 470, 650);
     }// </editor-fold>//GEN-END:initComponents
@@ -96,16 +106,40 @@ public class baru extends javax.swing.JFrame {
 
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
+        
+        String nk=nik.getText();
+        String n=nama.getText();
+        String a=alamat.getText();
+        String jk=jenkel.getSelectedItem().toString(); 
+        
+        if((nk.isEmpty())|(n.isEmpty())|(a.isEmpty())|(jk.isEmpty())) {
+            JOptionPane .showMessageDialog(null,"Masih Ada nilai yang kosong,silahkan dilengkapi!");
+            nik.requestFocus();
+        }
+        else {
+            Object[]options = {"YA","TIDAK"};
+            int Konfirmasi=JOptionPane.showOptionDialog(null,"Apakah Anda Yakin Ingin Menyimpan Data??","Konfirmasi",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
+            
+            if(Konfirmasi==JOptionPane.YES_OPTION) {   
+            }
+                    
         try{
             String SQL = "insert into tb_pengguna values('"+nik.getText()+"','"+nama.getText()+"','"+alamat.getText()+"','"+jenkel.getSelectedItem()+"')";
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan!");
             hub(SQL);
-            //conn = db.koneksi.koneksi();
         }catch(Exception exc){
             System.err.println(exc.getMessage());
             JOptionPane.showMessageDialog(null, "Data Gagal Disimpan!");
+            }
         }
     }//GEN-LAST:event_simpanActionPerformed
+
+    private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
+        // TODO add your handling code here:
+        login inf = new login();
+        inf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_kembaliActionPerformed
 
             private void hub(String sql){
         try {
@@ -162,6 +196,7 @@ public class baru extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jenkel;
+    private javax.swing.JButton kembali;
     private javax.swing.JTextField nama;
     private javax.swing.JTextField nik;
     private javax.swing.JButton simpan;

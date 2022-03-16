@@ -28,6 +28,8 @@ public class login extends javax.swing.JFrame {
     public login() {
         initComponents();
         conn = db.koneksi.koneksi();
+        bersih();
+        
         this.setLocationRelativeTo(null);
         this.setBackground(new Color(0,0,0,0));
     }
@@ -46,7 +48,7 @@ public class login extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
         masuk = new javax.swing.JButton();
         daftar = new javax.swing.JButton();
-        exit = new javax.swing.JLabel();
+        exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -68,7 +70,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtPassword);
-        txtPassword.setBounds(170, 300, 490, 70);
+        txtPassword.setBounds(170, 290, 490, 70);
 
         txtLogin.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         txtLogin.setForeground(new java.awt.Color(0, 0, 0));
@@ -79,7 +81,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtLogin);
-        txtLogin.setBounds(170, 170, 490, 70);
+        txtLogin.setBounds(170, 165, 490, 70);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1.png"))); // NOI18N
         getContentPane().add(background);
@@ -91,7 +93,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(masuk);
-        masuk.setBounds(460, 400, 220, 60);
+        masuk.setBounds(190, 380, 450, 40);
 
         daftar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,23 +101,18 @@ public class login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(daftar);
-        daftar.setBounds(160, 400, 280, 60);
+        daftar.setBounds(290, 440, 250, 20);
 
-        exit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                exitMouseClicked(evt);
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
             }
         });
         getContentPane().add(exit);
-        exit.setBounds(750, 10, 60, 50);
+        exit.setBounds(771, 10, 40, 40);
 
-        setBounds(0, 0, 821, 532);
+        setBounds(0, 0, 820, 530);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_exitMouseClicked
 
     private void masukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukActionPerformed
         // TODO add your handling code here:
@@ -143,6 +140,7 @@ public class login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Username dan Password tidak cocok ");
                 txtLogin.setText("");
                 txtPassword.setText("");
+                txtLogin.requestFocus();
             }
         }
         catch (Exception e ){
@@ -150,6 +148,7 @@ public class login extends javax.swing.JFrame {
             System.out.println(e);
             txtLogin.setText("");
             txtPassword.setText("");
+            txtLogin.requestFocus();
         }
     }//GEN-LAST:event_masukActionPerformed
 
@@ -171,6 +170,12 @@ public class login extends javax.swing.JFrame {
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_exitActionPerformed
+
 
     
     /**
@@ -208,10 +213,16 @@ public class login extends javax.swing.JFrame {
         });
     }
 
+    private void bersih() {
+        txtLogin.setText("");
+        txtPassword.setText("");
+        txtLogin.requestFocus();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton daftar;
-    private javax.swing.JLabel exit;
+    private javax.swing.JButton exit;
     private javax.swing.JButton masuk;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtPassword;
