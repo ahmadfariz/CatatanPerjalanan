@@ -8,6 +8,7 @@ package master;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -128,6 +129,12 @@ public class isi extends javax.swing.JFrame {
         namaa.setBounds(50, 170, 160, 70);
         getContentPane().add(jam);
         jam.setBounds(590, 140, 270, 50);
+
+        suhu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                suhuKeyTyped(evt);
+            }
+        });
         getContentPane().add(suhu);
         suhu.setBounds(590, 310, 270, 50);
         getContentPane().add(tggl);
@@ -187,6 +194,15 @@ public class isi extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_kembaliActionPerformed
 
+    private void suhuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_suhuKeyTyped
+        // TODO add your handling code here:
+//        if (suhu.getText().length() == 16 ) { //filter batas
+//            evt.consume();
+//            JOptionPane.showMessageDialog(null, "Batas Karakater 16");
+//        }
+        filterhuruf(evt);
+    }//GEN-LAST:event_suhuKeyTyped
+
     private void hub(String sql){
         try {
             String hubung="jdbc:mysql://localhost:3306/cttjalan";
@@ -200,6 +216,20 @@ public class isi extends javax.swing.JFrame {
                     System.err.println(exc.getMessage());
         }
         
+    }
+    
+        void filterhuruf (KeyEvent a) {
+        if(Character.isAlphabetic(a.getKeyChar())) {
+            a.consume();
+        JOptionPane.showMessageDialog(null, "Hanya Di Isi Angka");
+        }
+    }
+    
+    void filterangka (KeyEvent b) {
+        if(Character.isDigit(b.getKeyChar())) {
+            b.consume();
+        JOptionPane.showMessageDialog(null, "Hanya Di Isi Huruf");
+        }
     }
     
     /**

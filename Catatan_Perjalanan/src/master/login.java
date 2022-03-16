@@ -2,6 +2,7 @@ package master;
 
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -154,10 +155,16 @@ public class login extends javax.swing.JFrame {
 
     private void txtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyTyped
         // TODO add your handling code here:
+        filterangka(evt);
     }//GEN-LAST:event_txtPasswordKeyTyped
 
     private void txtLoginKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLoginKeyTyped
         // TODO add your handling code here:
+        if (txtLogin.getText().length() == 16 ) { //filter batas
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Batas Karakater 16");
+        }
+        filterhuruf(evt);
     }//GEN-LAST:event_txtLoginKeyTyped
 
     private void daftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarActionPerformed
@@ -176,7 +183,19 @@ public class login extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_exitActionPerformed
 
-
+    void filterhuruf (KeyEvent a) {
+        if(Character.isAlphabetic(a.getKeyChar())) {
+            a.consume();
+        JOptionPane.showMessageDialog(null, "Hanya Di Isi Angka");
+        }
+    }
+    
+    void filterangka (KeyEvent b) {
+        if(Character.isDigit(b.getKeyChar())) {
+            b.consume();
+        JOptionPane.showMessageDialog(null, "Hanya Di Isi Huruf");
+        }
+    }
     
     /**
      * @param args the command line arguments

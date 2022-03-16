@@ -206,8 +206,10 @@ public class profile extends javax.swing.JFrame {
                     Connection kon = DriverManager.getConnection(hubung,"root","");
                     Statement stt = kon.createStatement();
                     String SQL = "delete from tb_pengguna where nik='"+nika.getText()+"'";
+                    String sol = "delete from tb_catatan where nik='"+nika.getText()+"'";
                     stt.executeUpdate(SQL);
-                     data[0] = nika.getText();
+                    stt.executeUpdate(sol);
+                 data[0] = nika.getText();
                  data[1] = nama.getText();
                  data[2] = almt.getText();
                  data[3] = jenkel.getSelectedItem().toString();
@@ -215,7 +217,7 @@ public class profile extends javax.swing.JFrame {
                  stt.close();
             kon.close();
             
-            login inf = new login();
+        login inf = new login();
         inf.setVisible(true);
         this.dispose();
             

@@ -5,6 +5,7 @@
  */
 package master;
 
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,8 +41,8 @@ public class baru extends javax.swing.JFrame {
     private void initComponents() {
 
         nik = new javax.swing.JTextField();
-        jenkel = new javax.swing.JComboBox<>();
         nama = new javax.swing.JTextField();
+        jenkel = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         alamat = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
@@ -59,14 +60,31 @@ public class baru extends javax.swing.JFrame {
                 nikActionPerformed(evt);
             }
         });
+        nik.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nikKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nikKeyTyped(evt);
+            }
+        });
         getContentPane().add(nik);
         nik.setBounds(190, 120, 230, 40);
 
-        jenkel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jenis Kelamin", "Laki - Laki", "Perempuan" }));
-        getContentPane().add(jenkel);
-        jenkel.setBounds(250, 390, 150, 40);
+        nama.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                namaKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                namaKeyTyped(evt);
+            }
+        });
         getContentPane().add(nama);
         nama.setBounds(190, 170, 230, 40);
+
+        jenkel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - Laki", "Perempuan" }));
+        getContentPane().add(jenkel);
+        jenkel.setBounds(250, 390, 150, 40);
 
         alamat.setColumns(20);
         alamat.setRows(5);
@@ -127,6 +145,7 @@ public class baru extends javax.swing.JFrame {
             String SQL = "insert into tb_pengguna values('"+nik.getText()+"','"+nama.getText()+"','"+alamat.getText()+"','"+jenkel.getSelectedItem()+"')";
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan!");
             hub(SQL);
+            
         }catch(Exception exc){
             System.err.println(exc.getMessage());
             JOptionPane.showMessageDialog(null, "Data Gagal Disimpan!");
@@ -141,7 +160,29 @@ public class baru extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_kembaliActionPerformed
 
-            private void hub(String sql){
+    private void nikKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nikKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nikKeyPressed
+
+    private void namaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_namaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namaKeyPressed
+
+    private void nikKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nikKeyTyped
+        // TODO add your handling code here:
+        if (nik.getText().length() == 16 ) { //filter batas
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Batas Karakater 16");
+        }
+        filterhuruf(evt);
+    }//GEN-LAST:event_nikKeyTyped
+
+    private void namaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_namaKeyTyped
+        // TODO add your handling code here:
+        filterangka(evt);
+    }//GEN-LAST:event_namaKeyTyped
+
+        private void hub(String sql){
         try {
             String hubung="jdbc:mysql://localhost:3306/cttjalan";
             Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -156,6 +197,28 @@ public class baru extends javax.swing.JFrame {
         
                 }
     
+    private void bersih() {
+        nik.setText("");
+        nama.setText("");
+        alamat.setText("");
+        jenkel.setSelectedItem("");
+        nik.requestFocus();
+    }
+            
+    void filterhuruf (KeyEvent a) {
+        if(Character.isAlphabetic(a.getKeyChar())) {
+            a.consume();
+        JOptionPane.showMessageDialog(null, "Hanya Di Isi Angka");
+        }
+    }
+    
+    void filterangka (KeyEvent b) {
+        if(Character.isDigit(b.getKeyChar())) {
+            b.consume();
+        JOptionPane.showMessageDialog(null, "Hanya Di Isi Huruf");
+        }
+    }
+            
     /**
      * @param args the command line arguments
      */
