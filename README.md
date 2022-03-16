@@ -1,5 +1,5 @@
 # CatatanPerjalanan
-
+## Baca Dulu sebelum
 Yahaha hayuk
 
 # Mending beliin kopi
