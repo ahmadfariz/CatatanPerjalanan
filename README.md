@@ -1,8 +1,8 @@
-# 👋 CatatanPerjalanan
+# 👋 Catatan Perjalanan
 ## Baca Dulu sebelum copy meng copy
-Yahaha hayuk, jangan campur skrip A dan B jadi 1 kecuali faham tiap fungsi! mengurangi error yang ada, karena skrip dari guru beda dengan milik saya 😀 dah cukup itu saja
+Yahaha hayuk, jangan campur skrip A dan B jadi 1 kecuali faham tiap fungsi! mengurangi error yang ada, karena skrip dari guru beda dengan milik saya 😀 dah cukup itu saja, dari badut online.
 
-# Barang kali bersedia beliin kopi untuk saya dan ayang saya
+## Barang kali bersedia beliin kopi untuk saya dan ayang saya
 [Klik Ini](https://saweria.co/ahmadfariz)
 
 # Demo
@@ -31,3 +31,4 @@ https://user-images.githubusercontent.com/56096045/158607483-dd359250-bae0-44fe-
 - http://www.java-sc.com/
 - https://stackoverflow.com/
 - [Milet](https://www.youtube.com/watch?v=e-693LDUOsU&ab_channel=miletOfficialYouTubeChannel)
+
