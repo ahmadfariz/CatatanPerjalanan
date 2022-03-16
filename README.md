@@ -1,9 +1,9 @@
-# CatatanPerjalanan
-## Baca Dulu sebelum
-Yahaha hayuk
+# 👋 CatatanPerjalanan
+## Baca Dulu sebelum copy meng copy
+Yahaha hayuk, jangan campur skrip A dan B jadi 1 kecuali faham tiap fungsi! mengurangi error yang ada, karena skrip dari guru beda dengan milik saya 😀 dah cukup itu saja
 
-# Mending beliin kopi
-[klik ini](https://saweria.co/ahmadfariz)
+# Barang kali bersedia beliin kopi untuk saya dan ayang saya
+[Klik Ini](https://saweria.co/ahmadfariz)
 
 # Demo
 - Register Login
@@ -25,3 +25,9 @@ https://user-images.githubusercontent.com/56096045/158607955-12199ff0-a1d2-4013-
 - Hapus Akun Seisinya
 
 https://user-images.githubusercontent.com/56096045/158607483-dd359250-bae0-44fe-800d-3c6879530da6.mp4
+
+# Thank You
+- Bapak dan Ibu Guru
+- http://www.java-sc.com/
+- https://stackoverflow.com/
+- [Milet](https://www.youtube.com/watch?v=e-693LDUOsU&ab_channel=miletOfficialYouTubeChannel)
