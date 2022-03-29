@@ -123,10 +123,18 @@ public class isi extends javax.swing.JFrame {
         setUndecorated(true);
         setSize(new java.awt.Dimension(885, 560));
         getContentPane().setLayout(null);
+
+        nika.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        nika.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nika.setText("text");
         getContentPane().add(nika);
-        nika.setBounds(40, 70, 170, 70);
+        nika.setBounds(30, 190, 200, 40);
+
+        namaa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        namaa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        namaa.setText("text");
         getContentPane().add(namaa);
-        namaa.setBounds(50, 170, 160, 70);
+        namaa.setBounds(30, 240, 200, 40);
         getContentPane().add(jam);
         jam.setBounds(590, 140, 270, 50);
 
@@ -175,16 +183,32 @@ public class isi extends javax.swing.JFrame {
 
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
+        
+        String lk=lok.getText();
+        String sh=suhu.getText();
+        
+        if((lk.isEmpty())|(sh.isEmpty())) {
+            JOptionPane .showMessageDialog(null,"Masih Ada nilai yang kosong,silahkan dilengkapi!");
+                lok.requestFocus();
+        }
+        
+        Object[]options = {"YA","TIDAK"};
+            int konfirmasi=JOptionPane.showOptionDialog(null,"Apakah Anda Ingin Hapus Data?","Konfirmasi",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
+            
+            if(konfirmasi==JOptionPane.YES_OPTION) {
+             
         try{
-         String SQL = "insert into tb_catatan values('"+nika.getText()+"','"+tggl.getText()+"','"+jam.getText()+"','"+lok.getText()+"','"+suhu.getText()+"')";
-          JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan!");
-            hub(SQL);
+            String SQL = "insert into tb_catatan values('"+nika.getText()+"','"+tggl.getText()+"','"+jam.getText()+"','"+lok.getText()+"','"+suhu.getText()+"')";
+                JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan!");
+                hub(SQL);
         }catch(Exception exc){
+            
             System.err.println(exc.getMessage());
             JOptionPane.showMessageDialog(null, "Data Gagal Disimpan!");
         } 
         lok.setText("");
-        suhu.setText("");
+        suhu.setText("");   
+      }
     }//GEN-LAST:event_simpanActionPerformed
 
     private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
@@ -196,10 +220,10 @@ public class isi extends javax.swing.JFrame {
 
     private void suhuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_suhuKeyTyped
         // TODO add your handling code here:
-//        if (suhu.getText().length() == 16 ) { //filter batas
-//            evt.consume();
-//            JOptionPane.showMessageDialog(null, "Batas Karakater 16");
-//        }
+        if (suhu.getText().length() == 4 ) { //filter batas
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Batas Karakater 4");
+        }
         filterhuruf(evt);
     }//GEN-LAST:event_suhuKeyTyped
 

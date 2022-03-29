@@ -165,12 +165,12 @@ public class profile extends javax.swing.JFrame {
 
     private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
         // TODO add your handling code here:
-        Object[]options = {"YA","TIDAK"};
-        int konfirmasi=JOptionPane.showOptionDialog(null,"Apakah Anda Ingin Ubah Data?","Konfirmasi",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
-        if(konfirmasi==JOptionPane.YES_OPTION) {
-        }
         try {
-            String hubung = "jdbc:mysql://localhost:3306/cttjalan";
+            Object[]options = {"YA","TIDAK"};
+            int konfirmasi=JOptionPane.showOptionDialog(null,"Apakah Anda Ingin Ubah Data?","Konfirmasi",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
+            if(konfirmasi==JOptionPane.YES_OPTION) {
+
+                String hubung = "jdbc:mysql://localhost:3306/cttjalan";
                     Class.forName("com.mysql.jdbc.Driver").newInstance();
                     Connection kon = DriverManager.getConnection(hubung,"root","");
                     Statement stt = kon.createStatement();
@@ -182,7 +182,10 @@ public class profile extends javax.swing.JFrame {
                  data[3] = jenkel.getSelectedItem().toString();
                  
                   stt.close();
-            kon.close();
+                  kon.close();
+                
+            }
+
         } catch (Exception exc) {
         }
     }//GEN-LAST:event_ubahActionPerformed
@@ -195,13 +198,13 @@ public class profile extends javax.swing.JFrame {
     }//GEN-LAST:event_kembaliActionPerformed
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
-        // TODO add your handling code here:
-                Object[]options = {"YA","TIDAK"};
-    int konfirmasi=JOptionPane.showOptionDialog(null,"Apakah Anda Ingin Hapus Data?","Konfirmasi",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
-    if(konfirmasi==JOptionPane.YES_OPTION) {
-        }
+        // TODO add your handling code here:   
         try {
-            String hubung = "jdbc:mysql://localhost:3306/cttjalan";
+            Object[]options = {"YA","TIDAK"};
+            int konfirmasi=JOptionPane.showOptionDialog(null,"Apakah Anda Ingin Hapus Data?","Konfirmasi",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
+            if(konfirmasi==JOptionPane.YES_OPTION) {
+                
+                String hubung = "jdbc:mysql://localhost:3306/cttjalan";
                     Class.forName("com.mysql.jdbc.Driver").newInstance();
                     Connection kon = DriverManager.getConnection(hubung,"root","");
                     Statement stt = kon.createStatement();
@@ -213,13 +216,14 @@ public class profile extends javax.swing.JFrame {
                  data[1] = nama.getText();
                  data[2] = almt.getText();
                  data[3] = jenkel.getSelectedItem().toString();
-                
-                 stt.close();
+            stt.close();
             kon.close();
             
         login inf = new login();
         inf.setVisible(true);
         this.dispose();
+        
+                }
             
         } catch (Exception exc) {
         }

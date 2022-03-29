@@ -55,7 +55,7 @@ public class tabel extends javax.swing.JFrame {
     
     private void hub(String sql){
         try {
-            String hubung="jdbc:mysql://localhost:3306/pjj";
+            String hubung="jdbc:mysql://localhost:3306/cttjalan";
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection kon=DriverManager.getConnection(hubung,"root","");
             Statement stt=kon.createStatement();
@@ -161,13 +161,17 @@ public class tabel extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(300, 110, 560, 300);
 
-        nika.setText("\n");
+        nika.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        nika.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nika.setText("text");
         getContentPane().add(nika);
-        nika.setBounds(50, 70, 141, 52);
+        nika.setBounds(30, 190, 200, 40);
 
-        namaa.setText("\n");
+        namaa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        namaa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        namaa.setText("text");
         getContentPane().add(namaa);
-        namaa.setBounds(40, 120, 141, 52);
+        namaa.setBounds(30, 250, 200, 40);
 
         tg1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tg Catatan", "Suhu Tubuh" }));
         getContentPane().add(tg1);
@@ -222,7 +226,7 @@ public class tabel extends javax.swing.JFrame {
 
     private void urutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_urutActionPerformed
         // TODO add your handling code here:
-        String pilih=tg1.getSelectedItem().toString();
+                String pilih=tg1.getSelectedItem().toString();
                 if (pilih.equals("Suhu Tubuh")) {
                     String hubung = "jdbc:mysql://localhost:3306/cttjalan";
                     try {
@@ -230,7 +234,7 @@ public class tabel extends javax.swing.JFrame {
             Connection kon = DriverManager.getConnection(hubung,"root","");
             Statement stt = kon.createStatement();
             
-            String SQL = "Select * from tb_catatan where nik = '"+nik+"' order by suhu_tubuh asc";
+            String SQL = "Select * from tb_catatan where nik = '"+nik+"' order by suhu_tubuh desc";
             ResultSet res = stt.executeQuery(SQL);
             
             while(res.next()){

@@ -139,17 +139,18 @@ public class login extends javax.swing.JFrame {
             }
             else {
                 JOptionPane.showMessageDialog(null, "Username dan Password tidak cocok ");
-                txtLogin.setText("");
-                txtPassword.setText("");
-                txtLogin.requestFocus();
+//                txtLogin.setText("");
+//                txtPassword.setText("");
+//                txtLogin.requestFocus();
+                bersih();
             }
         }
         catch (Exception e ){
             JOptionPane.showMessageDialog(null, "Gagal pada database : "+e);
             System.out.println(e);
-            txtLogin.setText("");
-            txtPassword.setText("");
-            txtLogin.requestFocus();
+//            txtLogin.setText("");
+//            txtPassword.setText("");
+//            txtLogin.requestFocus();
         }
     }//GEN-LAST:event_masukActionPerformed
 

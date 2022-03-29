@@ -124,7 +124,6 @@ public class baru extends javax.swing.JFrame {
 
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
-        
         String nk=nik.getText();
         String n=nama.getText();
         String a=alamat.getText();
@@ -134,17 +133,18 @@ public class baru extends javax.swing.JFrame {
             JOptionPane .showMessageDialog(null,"Masih Ada nilai yang kosong,silahkan dilengkapi!");
             nik.requestFocus();
         }
-        else {
+     else {
+            
+        try{
             Object[]options = {"YA","TIDAK"};
             int Konfirmasi=JOptionPane.showOptionDialog(null,"Apakah Anda Yakin Ingin Menyimpan Data??","Konfirmasi",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
             
-            if(Konfirmasi==JOptionPane.YES_OPTION) {   
-            }
-                    
-        try{
+            if(Konfirmasi==JOptionPane.YES_OPTION) {
             String SQL = "insert into tb_pengguna values('"+nik.getText()+"','"+nama.getText()+"','"+alamat.getText()+"','"+jenkel.getSelectedItem()+"')";
-            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan!");
             hub(SQL);
+                JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan!");
+                bersih();
+            }
             
         }catch(Exception exc){
             System.err.println(exc.getMessage());

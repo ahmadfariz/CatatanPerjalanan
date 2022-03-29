@@ -35,6 +35,7 @@ public class menu extends javax.swing.JFrame {
         initComponents();
         conn = db.koneksi.koneksi();
         this.setLocationRelativeTo(null);
+        login.setEnabled(false);
     
     String query = "SELECT * FROM tb_pengguna WHERE nik=?";
         try {
@@ -65,12 +66,14 @@ public class menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         namaa = new javax.swing.JLabel();
         nika = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        login = new javax.swing.JMenuItem();
+        logout = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
@@ -80,43 +83,68 @@ public class menu extends javax.swing.JFrame {
         setUndecorated(true);
         setSize(new java.awt.Dimension(885, 560));
         getContentPane().setLayout(null);
-        getContentPane().add(namaa);
-        namaa.setBounds(60, 180, 160, 30);
-        getContentPane().add(nika);
-        nika.setBounds(0, 80, 260, 40);
 
-        jButton1.setText("jButton1");
+        namaa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        namaa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        namaa.setText("text");
+        getContentPane().add(namaa);
+        namaa.setBounds(30, 250, 200, 40);
+
+        nika.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        nika.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nika.setText("text");
+        getContentPane().add(nika);
+        nika.setBounds(30, 180, 200, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/2.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 880, 540);
+
+        jButton1.setText("TABEL");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(500, 60, 170, 120);
+        jButton1.setBounds(590, 90, 110, 100);
 
-        jButton2.setText("jButton1");
+        jButton2.setText("ISI");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(290, 60, 170, 120);
+        jButton2.setBounds(370, 90, 120, 100);
 
-        jButton4.setText("jButton4");
+        jButton4.setText("PROFIL");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(290, 210, 170, 120);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/2.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 880, 540);
+        jButton4.setBounds(380, 240, 110, 110);
 
         jMenu1.setText("Dashboard");
+
+        login.setText("Login");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
+        jMenu1.add(login);
+
+        logout.setText("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        jMenu1.add(logout);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Catatan Perjalanan");
@@ -150,6 +178,19 @@ public class menu extends javax.swing.JFrame {
         inf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        // TODO add your handling code here:
+        //login.setEnabled(true);
+        logout.setEnabled(false);
+        login inf = new login();
+        inf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logoutActionPerformed
 
     
     /**
@@ -200,6 +241,8 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem login;
+    private javax.swing.JMenuItem logout;
     private javax.swing.JLabel namaa;
     private javax.swing.JLabel nika;
     // End of variables declaration//GEN-END:variables
