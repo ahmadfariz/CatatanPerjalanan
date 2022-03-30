@@ -71,6 +71,11 @@ public class baru extends javax.swing.JFrame {
         getContentPane().add(nik);
         nik.setBounds(190, 120, 230, 40);
 
+        nama.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                namaMouseClicked(evt);
+            }
+        });
         nama.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 namaKeyPressed(evt);
@@ -181,6 +186,16 @@ public class baru extends javax.swing.JFrame {
         // TODO add your handling code here:
         filterangka(evt);
     }//GEN-LAST:event_namaKeyTyped
+
+    private void namaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_namaMouseClicked
+        // TODO add your handling code here:
+        if (nik.getText().trim().length() < 16 ) { //filter batas
+            JOptionPane.showMessageDialog(null, "NIK Harus 16 Karakter");
+            nik.requestFocus();
+        } else {
+            //Object[]options = {"OKE"}; 
+        }
+    }//GEN-LAST:event_namaMouseClicked
 
         private void hub(String sql){
         try {
